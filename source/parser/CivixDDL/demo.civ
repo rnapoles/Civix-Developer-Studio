@@ -1,0 +1,58 @@
+@ExtensionFile("booking")
+@ExtensionName("CiviBooking")
+@ExtensionDescription("A CMS independent extension to allow organisations...")
+@ExtensionLicense("GNU AGPL 3")
+@Autor("Erawat Chamanont, Jamie Novick, Guanhuan Chen")
+@AutorEmail("jamie@compucorpc.o.uk, guanhuan@compucorp.co.uk")
+@ExtensionVersion("1.5.2")
+@ExtensionCompatibility(ver={4.5,4.6,4.7})
+@ExtensionReleaseDate("2016-07-15")
+extension crm.booking {
+
+    @Table(name="Booking") //optional by default table name is the name of entity
+    @Auditable //add fields created_by,created_date,updated_by,updated_date
+	entity Booking
+	{
+		
+        @Id
+        @PrimaryKey
+        int id;	
+		
+        Contact contact;	//OneToOne Unidirectional
+        Contact? secondContact;	//nullable
+
+        @Column(length=255, nullable=false, unique=false) //Default
+        string title;
+        
+        @ManyToMany()
+        @JoinTable(name="users_phonenumbers",
+            joinColumns={@JoinColumn(name="user_id", referencedColumnName="id")},
+            inverseJoinColumns={@JoinColumn(name="phonenumber_id", referencedColumnName="id", unique=true)}
+        )
+        Phonenumber phones;
+        
+        datetime bookingDate = new Date();
+        datetime startDate;
+        datetime endDate;
+        string? poNumber; // = @Column(length=255, nullable=true, unique=false)
+        decimal totalAmount;
+        
+        int status = {"Provisional","Booked","Complete"};
+        
+        @OptionGroup(options = {"Provisional","Booked","Complete"})
+        int bookingStatus = 1;
+
+	}
+    
+    @Table(name="civicrm_booking_payment")
+	entity Payment implements IPayable
+	{
+        @Id
+        @PrimaryKey
+        int id;	
+        
+        Booking booking;
+        
+	}
+
+}

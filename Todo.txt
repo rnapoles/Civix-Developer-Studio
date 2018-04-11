@@ -1,0 +1,5 @@
+- UI toolbar drag and drop
+- CodeGen
+- @FindBy added to entity magic methods to find by fields
+- @Repository add entity repo
+- TypeCheck

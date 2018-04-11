@@ -1,0 +1,36 @@
+## Annotations
+snippet mm
+	@ManyToMany
+	${1}
+snippet mo
+	@ManyToOne
+	${1}
+snippet om
+	@OneToMany${1:(cascade="ALL")}
+	${2}
+snippet oo
+	@OneToOne
+	${1}
+##
+## Entity
+snippet ent
+	entity ${1:EntityName} ${2}
+snippet ext
+	extension ${1:EntityName} ${2:extends Parent}${3}
+snippet entex
+	entity ${1:EntityName} extends ${2:Parent}
+snippet entim
+	entity ${1:EntityName} implements ${2:Interface}
+##
+## Class Enhancements
+snippet ext
+	extends 
+snippet imp
+	implements
+##
+## Comments
+snippet /*
+	/*
+	 * ${1}
+	 */
+##

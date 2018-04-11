@@ -1,0 +1,19 @@
+extension my.ext.name {
+
+    @Table("123")
+	entity Invoice extends Money
+	{
+		string code;	
+		date createdAt;
+		InvoiceLine* lines; //Invoice has Lines
+
+	}
+    
+	entity InvoiceLine 
+	{
+		string product = "clock";
+		decimal quantity;
+		decimal price;
+	}
+
+}

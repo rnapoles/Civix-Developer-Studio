@@ -1,0 +1,473 @@
+0 'Provisional' '"Provisional"' 'VariableInitializerContext'
+1 'Booked' '"Booked"' 'VariableInitializerContext'
+2 'Complete' '"Complete"' 'VariableInitializerContext'
+{
+	"name": "crm.booking",
+	"annotations": [
+		{
+			"name": "ExtensionFile",
+			"defaultValue": "booking",
+			"params": []
+		},
+		{
+			"name": "ExtensionName",
+			"defaultValue": "CiviBooking",
+			"params": []
+		},
+		{
+			"name": "ExtensionDescription",
+			"defaultValue": "A CMS independent extension to allow organisations...",
+			"params": []
+		},
+		{
+			"name": "ExtensionLicense",
+			"defaultValue": "GNU AGPL 3",
+			"params": []
+		},
+		{
+			"name": "Autor",
+			"defaultValue": "Erawat Chamanont, Jamie Novick, Guanhuan Chen",
+			"params": []
+		},
+		{
+			"name": "AutorEmail",
+			"defaultValue": "jamie@compucorpc.o.uk, guanhuan@compucorp.co.uk",
+			"params": []
+		},
+		{
+			"name": "ExtensionVersion",
+			"defaultValue": "1.5.2",
+			"params": []
+		},
+		{
+			"name": "ExtensionCompatibility",
+			"defaultValue": null,
+			"params": [
+				{
+					"key": "ver",
+					"value": [
+						"4.5",
+						"4.6",
+						"4.7"
+					]
+				}
+			]
+		},
+		{
+			"name": "ExtensionReleaseDate",
+			"defaultValue": "2016-07-15",
+			"params": []
+		}
+	],
+	"entities": [
+		{
+			"name": "Booking",
+			"annotations": [
+				{
+					"name": "Table",
+					"defaultValue": null,
+					"params": [
+						{
+							"key": "name",
+							"value": "Booking"
+						}
+					]
+				},
+				{
+					"name": "Auditable",
+					"defaultValue": null,
+					"params": []
+				}
+			],
+			"fields": [
+				{
+					"name": "id",
+					"annotations": [
+						{
+							"name": "Id",
+							"defaultValue": null,
+							"params": []
+						},
+						{
+							"name": "PrimaryKey",
+							"defaultValue": null,
+							"params": []
+						}
+					],
+					"type": "int",
+					"unique": false,
+					"nullable": false,
+					"value": "",
+					"start": {
+						"y": 19,
+						"x": 8
+					},
+					"col": {
+						"y": 19,
+						"x": 14
+					}
+				},
+				{
+					"name": "contact",
+					"annotations": [],
+					"type": "Contact",
+					"unique": false,
+					"nullable": false,
+					"value": "",
+					"start": {
+						"y": 21,
+						"x": 8
+					},
+					"col": {
+						"y": 21,
+						"x": 23
+					}
+				},
+				{
+					"name": "secondContact",
+					"annotations": [],
+					"type": "Contact",
+					"unique": false,
+					"nullable": true,
+					"value": "",
+					"start": {
+						"y": 22,
+						"x": 8
+					},
+					"col": {
+						"y": 22,
+						"x": 30
+					}
+				},
+				{
+					"name": "title",
+					"annotations": [
+						{
+							"name": "Column",
+							"defaultValue": null,
+							"params": [
+								{
+									"key": "length",
+									"value": "255"
+								},
+								{
+									"key": "nullable",
+									"value": false
+								},
+								{
+									"key": "unique",
+									"value": false
+								}
+							]
+						}
+					],
+					"type": "string",
+					"unique": false,
+					"nullable": false,
+					"value": "",
+					"start": {
+						"y": 25,
+						"x": 8
+					},
+					"col": {
+						"y": 25,
+						"x": 20
+					}
+				},
+				{
+					"name": "phones",
+					"annotations": [
+						{
+							"name": "ManyToMany",
+							"defaultValue": null,
+							"params": []
+						},
+						{
+							"name": "JoinTable",
+							"defaultValue": null,
+							"params": [
+								{
+									"key": "name",
+									"value": "users_phonenumbers"
+								},
+								{
+									"key": "joinColumns",
+									"value": [
+										[
+											{
+												"name": "JoinColumn",
+												"defaultValue": null,
+												"params": [
+													{
+														"key": "name",
+														"value": "user_id"
+													},
+													{
+														"key": "referencedColumnName",
+														"value": "id"
+													}
+												],
+												"type": "annotation"
+											}
+										]
+									]
+								},
+								{
+									"key": "inverseJoinColumns",
+									"value": [
+										[
+											{
+												"name": "JoinColumn",
+												"defaultValue": null,
+												"params": [
+													{
+														"key": "name",
+														"value": "phonenumber_id"
+													},
+													{
+														"key": "referencedColumnName",
+														"value": "id"
+													},
+													{
+														"key": "unique",
+														"value": true
+													}
+												],
+												"type": "annotation"
+											}
+										]
+									]
+								}
+							]
+						}
+					],
+					"type": "Phonenumber",
+					"unique": false,
+					"nullable": false,
+					"value": "",
+					"start": {
+						"y": 32,
+						"x": 8
+					},
+					"col": {
+						"y": 32,
+						"x": 26
+					}
+				},
+				{
+					"name": "bookingDate",
+					"annotations": [],
+					"type": "datetime",
+					"unique": false,
+					"nullable": false,
+					"value": "Date()",
+					"start": {
+						"y": 34,
+						"x": 8
+					},
+					"col": {
+						"y": 34,
+						"x": 41
+					}
+				},
+				{
+					"name": "startDate",
+					"annotations": [],
+					"type": "datetime",
+					"unique": false,
+					"nullable": false,
+					"value": "",
+					"start": {
+						"y": 35,
+						"x": 8
+					},
+					"col": {
+						"y": 35,
+						"x": 26
+					}
+				},
+				{
+					"name": "endDate",
+					"annotations": [],
+					"type": "datetime",
+					"unique": false,
+					"nullable": false,
+					"value": "",
+					"start": {
+						"y": 36,
+						"x": 8
+					},
+					"col": {
+						"y": 36,
+						"x": 24
+					}
+				},
+				{
+					"name": "poNumber",
+					"annotations": [],
+					"type": "string",
+					"unique": false,
+					"nullable": true,
+					"value": "",
+					"start": {
+						"y": 37,
+						"x": 8
+					},
+					"col": {
+						"y": 37,
+						"x": 24
+					}
+				},
+				{
+					"name": "totalAmount",
+					"annotations": [],
+					"type": "decimal",
+					"unique": false,
+					"nullable": false,
+					"value": "",
+					"start": {
+						"y": 38,
+						"x": 8
+					},
+					"col": {
+						"y": 38,
+						"x": 27
+					}
+				},
+				{
+					"name": "status",
+					"annotations": [],
+					"type": "int",
+					"unique": false,
+					"nullable": false,
+					"value": [
+						"Provisional",
+						"Booked",
+						"Complete"
+					],
+					"start": {
+						"y": 40,
+						"x": 8
+					},
+					"col": {
+						"y": 40,
+						"x": 56
+					}
+				},
+				{
+					"name": "bookingStatus",
+					"annotations": [
+						{
+							"name": "OptionGroup",
+							"defaultValue": null,
+							"params": [
+								{
+									"key": "options",
+									"value": [
+										"Provisional",
+										"Booked",
+										"Complete"
+									]
+								}
+							]
+						}
+					],
+					"type": "int",
+					"unique": false,
+					"nullable": false,
+					"value": "1",
+					"start": {
+						"y": 43,
+						"x": 8
+					},
+					"col": {
+						"y": 43,
+						"x": 29
+					}
+				}
+			],
+			"parentClass": "",
+			"interfaces": [],
+			"start": {
+				"y": 14,
+				"x": 1
+			},
+			"col": {
+				"y": 45,
+				"x": 1
+			}
+		},
+		{
+			"name": "Payment",
+			"annotations": [
+				{
+					"name": "Table",
+					"defaultValue": null,
+					"params": [
+						{
+							"key": "name",
+							"value": "civicrm_booking_payment"
+						}
+					]
+				}
+			],
+			"fields": [
+				{
+					"name": "id",
+					"annotations": [
+						{
+							"name": "Id",
+							"defaultValue": null,
+							"params": []
+						},
+						{
+							"name": "PrimaryKey",
+							"defaultValue": null,
+							"params": []
+						}
+					],
+					"type": "int",
+					"unique": false,
+					"nullable": false,
+					"value": "",
+					"start": {
+						"y": 52,
+						"x": 8
+					},
+					"col": {
+						"y": 52,
+						"x": 14
+					}
+				},
+				{
+					"name": "booking",
+					"annotations": [],
+					"type": "Booking",
+					"unique": false,
+					"nullable": false,
+					"value": "",
+					"start": {
+						"y": 54,
+						"x": 8
+					},
+					"col": {
+						"y": 54,
+						"x": 23
+					}
+				}
+			],
+			"parentClass": "",
+			"interfaces": [
+				"IPayable"
+			],
+			"start": {
+				"y": 48,
+				"x": 1
+			},
+			"col": {
+				"y": 56,
+				"x": 1
+			}
+		}
+	]
+}

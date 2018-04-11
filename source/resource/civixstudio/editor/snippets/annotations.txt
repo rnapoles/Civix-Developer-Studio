@@ -1,0 +1,51 @@
+@ExtensionFile("file")
+@ExtensionName("TheExtensionName")
+@ExtensionDescription("A CMS independent extension...")
+@ExtensionLicense("GNU AGPL 3")
+@Autor("...")
+@AutorEmail("")
+@ExtensionVersion("0.1")
+@ExtensionCompatibility(ver={4.5,4.6,4.7})
+@ExtensionReleaseDate("2016-07-15")
+@Table(name="TableName")
+@Auditable
+@Id
+@PrimaryKey
+@Column(length=255, nullable=false, unique=false)
+@OptionGroup(options = {})
+@OrderBy("areaCode")
+@PrePersist
+@PreUpdate
+@PreRemove
+@PostPersist
+@PostUpdate
+@PostRemove
+@CardScheme()
+@Count()
+@Date()
+@DateTime()
+@Email()
+@File()
+@Image()
+@Ip()
+@Length()
+@Luhn()
+@NotBlank()
+@NotNull()
+@Range()
+@Regex()
+@Rule()
+@Time()
+@Url()
+@Editor("textfield")
+@RenderAs("money")
+@View
+@Hidden
+@HideInGrid
+@Virtual
+@Formula
+@Hook
+@Menu
+@Display(label="Display label",width=55)
+@DisplayLabel("Display label")
+@DisplayWidth(55)
